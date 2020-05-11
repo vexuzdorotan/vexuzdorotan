@@ -14,6 +14,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 </style>
 <body class="w3-light-grey w3-content" style="max-width:1600px">
 
+{% block menu %}
+
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
   <div class="w3-container">
@@ -29,9 +31,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw w3-margin-right"></i>ABOUT</a>
   </div>
   <div class="w3-panel w3-large">
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-github w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
+    <a href="https://www.facebook.com/dorotan.VeXuZ" target="_blank"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
+    <a href="https://github.com/vexuzdorotan" target="_blank"><i class="fa fa-github w3-hover-opacity"></i></a>
+    <a href="https://www.linkedin.com/in/jonneldorotan/" target="_blank"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
   </div>
 </nav>
 
@@ -46,11 +48,12 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     {% comment %} <span class="w3-margin-right">Filter:</span> {% endcomment %}
     {% comment %} <button class="w3-button w3-black">ALL</button> {% endcomment %}
     <button
-        class="w3-button w3-{% if nav == 'index' %}black{% elif nav == 'project' %}grey{% else %}white{% endif %}"
-        onclick="window.open('{% url 'portfolio:index' %}', '_self')">
-        <i class="fa fa-diamond w3-margin-right"></i>Portfolio</button>
-    <button class="w3-button w3-{% if nav == 'post' %}black{% else %}white{% endif %}">
-        <i class="fa fa-photo w3-margin-right"></i>Shared Posts</button>
+      class="w3-button w3-{% if nav == 'index' %}black{% elif nav == 'project' %}grey{% else %}white{% endif %}"
+      onclick="window.open('{% url 'portfolio:index' %}', '_self')">
+      <i class="fa fa-diamond w3-margin-right"></i>Portfolio</button>
+    <button class="w3-button w3-{% if nav == 'posts' %}black{% else %}white{% endif %}"
+      onclick="window.open('{% url 'portfolio:posts' %}', '_self')">
+      <i class="fa fa-photo w3-margin-right"></i>Shared Posts</button>
     </div>
     </div>
 </header>
@@ -58,6 +61,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+{% endblock %}
 
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:300px">
@@ -67,7 +72,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 <!-- End page content -->
 </div>
 
+{% block scripts %}
 <script>
+
 // Script to open and close sidebar
 function w3_open() {
     document.getElementById("mySidebar").style.display = "block";
@@ -79,6 +86,7 @@ function w3_close() {
     document.getElementById("myOverlay").style.display = "none";
 }
 </script>
+{% endblock %}
 
 </body>
 </html>

@@ -15,8 +15,11 @@
     <h1><b>{{ project.title }}</b></h1>
     <h3>{{ project.description|safe }}</h3>
     <p>Posted on {{ project.date_added }}</p>
-    {% if project.link %}
-        <a href="{{ project.link }}">{{ project.link }}</a>
+    {% if project.website_link %}
+        <a href="{{ project.website_link }}">Live Website: {{ project.website_link }}</a>
+    {% endif %}
+    {% if project.github_link %}
+        <a href="{{ project.github_link }}">GitHub: {{ project.github_link }}</a>
     {% endif %}
     <hr>
   </div>
