@@ -22,13 +22,13 @@
 
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .models import Portfolio
 
 
 def index(request):
     projects = Portfolio.objects.order_by('-date_added').filter(show=True)
-    paginator = Paginator(projects, 3)
+    paginator = Paginator(projects, 6)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
@@ -62,4 +62,12 @@ def register(request):
 
 
 def login(request):
-    return render(request, 'portfolio/login.html')
+    form = AuthenticationForm()
+
+    if request.method == 'POST':
+        form = AuthenticationForm(request.POST)
+
+    context = {
+        'form': form,
+    }
+    return render(request, 'portfolio/login.html', context)

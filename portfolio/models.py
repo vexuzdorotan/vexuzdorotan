@@ -12,3 +12,9 @@ class Portfolio(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Technology(models.Model):
+    title = models.CharField(max_length=50)
+    fa_icon = models.URLField(blank=True)
+    rank = models.IntegerField()
