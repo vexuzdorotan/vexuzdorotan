@@ -21,6 +21,8 @@ from django.conf import settings
 
 urlpatterns = [
     path('', include('portfolio.urls')),
+    path('posts/', include('shared_posts.urls')),
+    path('courses/', include('course.urls')),
     path('admin/', admin.site.urls),
 ]
 

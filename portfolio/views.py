@@ -23,21 +23,39 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from .models import Portfolio
+from .models import Portfolio, Technology
+from course.models import Course
 
 
 def index(request):
+    technologies = Technology.objects.order_by('rank')
+
     projects = Portfolio.objects.order_by('-date_added').filter(show=True)
-    paginator = Paginator(projects, 6)
+    projects_count = Portfolio.objects.count()
+    paginator = Paginator(projects, 3)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
-    return render(request, 'portfolio/index.html', {'projects': page_obj, 'nav': request.resolver_match.url_name})
+    courses = Course.objects.all()
+
+    return render(request, 'portfolio/index.html', {
+        'technologies': technologies,
+        'projects': page_obj,
+        'projects_count': projects_count,
+        'nav': request.resolver_match.url_name,
+        'courses': courses,
+    })
 
 
 def project(request, pk):
+    recent_projects = Portfolio.objects.order_by(
+        '-date_added').filter(show=True)[:5]
     project = get_object_or_404(Portfolio, pk=pk, show=True)
-    return render(request, 'portfolio/project.html', {'project': project, 'nav': request.resolver_match.url_name})
+    return render(request, 'portfolio/project-single.html', {
+        'project': project,
+        'recent_projects': recent_projects,
+        'nav': request.resolver_match.url_name
+    })
 
 
 def posts(request):
