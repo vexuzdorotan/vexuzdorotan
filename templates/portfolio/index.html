@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+  
+{% block content %}  
+  <main id="main">
+    <!-- ======= Intro Section ======= -->
+    {% include 'portfolio/intro.html' %}
+
+    <!-- ======= About Section ======= -->
+    {% include 'portfolio/about.html' %}
+
+    <!-- ======= Services Section ======= -->
+    {% comment %} {% include 'portfolio/services.html' %} {% endcomment %}
+
+    <!-- ======= Counter Section ======= -->
+    {% include 'portfolio/counter.html' %}
+
+    <!-- ======= Portfolio Section ======= -->
+    {% include 'portfolio/portfolio.html' %}
+
+    <!-- ======= Testimonials Section ======= -->
+    {% comment %} {% include 'portfolio/testimonials.html' %} {% endcomment %}
+
+    <!-- ======= Blog Section ======= -->
+    {% include 'portfolio/courses.html' %}
+
+    <!-- ======= Contact Section ======= -->
+    {% comment %} {% include 'portfolio/contact.html' %} {% endcomment %}
+  </main>
+{% endblock %}

@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="intro intro-single route bg-image" style="background-image: url({{ project.photo.url }})">
+    <div class="overlay-mf"></div>
+    <div class="intro-content display-table">
+      <div class="table-cell">
+        <div class="container">
+          <h2 class="intro-title mb-4">Project Details</h2>
+          {% comment %} <ol class="breadcrumb d-flex justify-content-center">
+            <li class="breadcrumb-item">
+              <a href="#">Home</a>
+            </li>
+            <li class="breadcrumb-item">
+              <a href="#">Library</a>
+            </li>
+            <li class="breadcrumb-item active">Data</li>
+          </ol> {% endcomment %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- ======= Blog Single Section ======= -->
+    <section class="blog-wrapper sect-pt4" id="blog">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="post-box">
+              <div class="post-thumb">
+                <img src="{{ project.photo.url }}" class="img-fluid" alt="">
+              </div>
+              <div class="post-meta">
+                <h1 class="article-title">{{ project.title }}</h1>
+                <ul>
+                  <li>
+                    <span class="far fa-calendar-alt"></span>
+                    Established on {{ project.date_added|date:'M Y' }}
+                  </li>
+
+                  {% if project.website_link %}
+                  <li>
+                    <span class="fas fa-globe"></span>
+                    <a href="{{ project.website_link }}">Live Website</a>
+                  </li>
+                  {% endif %}
+
+                  {% if project.github_link %}
+                  <li>
+                    <a href="{{ project.github_link }}"><span class="fab fa-github"></span> Source Code</a>
+                  </li>
+                  {% endif %}
+                </ul>
+              </div>
+              <div class="article-content">
+                <p>{{ project.description|safe }}</p>
+              </div>
+            </div>
+            
+            
+          </div>
+          <div class="col-md-4">
+            <div class="widget-sidebar">
+              <h5 class="sidebar-title">Recent Projects</h5>
+              <div class="sidebar-content">
+                <ul class="list-sidebar">
+                  {% for recent_project in recent_projects %}
+                  <li>
+                    <a href="{% url 'portfolio:project' pk=recent_project.id %}">{{ recent_project.title }}</a>
+                  </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+            
+            <div class="widget-sidebar widget-tags">
+              <h5 class="sidebar-title">Tags</h5>
+              <div class="sidebar-content">
+                <ul>
+                  {% if project.tags.all %}
+                    {% for tech in project.tags.all %}
+                    <li style="color: #fff;">{{ tech.title }}</li>
+                    {% endfor %}
+                  {% else %}
+                  None
+                  {% endif %}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Blog Single Section -->
+
+  </main><!-- End #main -->
+
+{% endblock content %}

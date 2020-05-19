@@ -1,0 +1,54 @@
+{% load static %}
+
+<section id="work" class="portfolio-mf sect-pt4 route">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="title-box text-center">
+          <h3 class="title-a">
+            My Works
+          </h3>
+          <p class="subtitle-a">
+            Small and Medium Projects
+          </p>
+          <div class="line-mf"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      {% for project in projects %}
+      <div class="col-md-4">
+        <div class="work-box">
+          <div class="work-img">
+            <a href="{{ project.photo.url }}" data-gall="portfolioGallery" class="venobox">
+              <img src="{{ project.photo.url }}" alt="" class="img-fluid" style="width:100%">
+            </a>
+          </div>
+          <div class="work-content">
+            <div class="row">
+              <div class="col-sm-8">
+                <h2 class="w-title">{{ project.title|truncatechars:40 }}</h2>
+                <div class="w-more">
+                  <p>{{ project.description|truncatechars:40 }}</p>
+                  {% comment %} <span class="w-ctegory">Web Design</span> /  {% endcomment %}
+                  <span class="w-date">{{ project.date_added|date:'M Y' }}</span>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="w-like">
+                  <a href="{% url 'portfolio:project' pk=project.pk %}" target="_blank" class="fas fa-arrow-circle-right"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="pb-5 text-center">
+      <button onclick="location.href='{% url 'portfolio:projects' %}'" type="button" class="btn btn-primary">More Works</button>
+    </div>
+  </div>
+</section>

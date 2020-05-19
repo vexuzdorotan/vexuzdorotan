@@ -8,7 +8,6 @@
 *.pyc
 __pycache__/
 local_settings.py
-/static/
-/templates/
+/assets/
 
 # End of https://www.gitignore.io/api/django
