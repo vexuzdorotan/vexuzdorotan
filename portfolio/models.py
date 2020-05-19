@@ -6,6 +6,7 @@ class Technology(models.Model):
     percent = models.IntegerField()
     icon = models.CharField(max_length=50, blank=True)
     rank = models.IntegerField()
+    show = models.BooleanField(default=True)
 
     def __str__(self):
         return self.title

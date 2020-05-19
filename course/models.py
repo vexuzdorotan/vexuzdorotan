@@ -15,6 +15,7 @@ class Course(models.Model):
     image = models.URLField()
     date = models.DateField(auto_now_add=False)
     completed = models.IntegerField()
+    code = models.URLField(blank=True)
 
     def __str__(self):
         return self.title

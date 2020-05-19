@@ -1,5 +1,12 @@
 from django.shortcuts import render
+from .models import Course
 
 
 def index(request):
-    return render(request, 'course/index.html')
+    courses = Course.objects.all().order_by('-date')
+
+    context = {
+        'courses': courses,
+    }
+
+    return render(request, 'course/index.html', context)
