@@ -1,25 +1,3 @@
-# forms.py
-# from django.forms import ModelForm
-
-
-# admin.py
-# admin.ModelAdmin
-
-
-# settings.py
-# LOGIN_URL = '/login'
-
-
-# views.py
-# from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-# from django.contrib.auth.models import User
-# from django.contrib.auth.decorators import login_required
-# from django.contrib.auth import login, logout, authenticate
-
-
-# ===
-
-
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
@@ -36,7 +14,7 @@ def index(request):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
-    courses = Course.objects.all().order_by('-date')[:3]
+    courses = Course.objects.all().order_by('-date').filter(show=True)[:3]
     courses_count = Course.objects.count()
 
     return render(request, 'portfolio/index.html', {

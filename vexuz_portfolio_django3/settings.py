@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'vtgv=h4zbrf=ke-knu()!!k@r@s0y!@8_yqpf(s5uz(n&!ytrr'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['vexuzdorotan.pythonanywhere.com']
 
@@ -133,6 +133,6 @@ STATICFILES_DIRS = [
 ]
 
 try:
-    from local_settings import *
+    from .local_settings import *
 except ImportError:
     print('Looks like no local file. You must be on production')

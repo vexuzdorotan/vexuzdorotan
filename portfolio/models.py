@@ -19,6 +19,7 @@ class Portfolio(models.Model):
     github_link = models.URLField(blank=True)
     website_link = models.URLField(blank=True)
     date_added = models.DateField()
+    ongoing = models.BooleanField(default=True)
     show = models.BooleanField(default=True)
     tags = models.ManyToManyField(Technology, blank=True)
 

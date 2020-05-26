@@ -13,6 +13,7 @@ class Course(models.Model):
     category = models.CharField(max_length=50, choices=PLATFORM)
     link = models.URLField()
     image = models.URLField()
+    show = models.BooleanField(default=True)
     date = models.DateField(auto_now_add=False)
     completed = models.IntegerField()
     code = models.URLField(blank=True)
