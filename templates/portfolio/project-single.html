@@ -43,13 +43,13 @@
                   {% if project.website_link %}
                   <li>
                     <span class="fas fa-globe"></span>
-                    <a href="{{ project.website_link }}">Live Website</a>
+                    <a href="{{ project.website_link }}" target="blank">Live Website</a>
                   </li>
                   {% endif %}
 
                   {% if project.github_link %}
                   <li>
-                    <a href="{{ project.github_link }}"><span class="fab fa-github"></span> Source Code</a>
+                    <a href="{{ project.github_link }}" target="blank"><span class="fab fa-github"></span> Source Code</a>
                   </li>
                   {% endif %}
                 </ul>

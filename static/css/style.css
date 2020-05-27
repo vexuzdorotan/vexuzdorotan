@@ -1076,11 +1076,11 @@ a:hover {
 /*--------------------------------------------------------------
 # Blog
 --------------------------------------------------------------*/
-@media (min-width: 767px) {
-  .card-blog {
-    margin-bottom: 3rem;
-  }
+/* @media (min-width: 767px) { */
+.card-blog {
+  margin-bottom: 3rem;
 }
+/* } */
 
 .card-blog .card-body {
   position: relative;

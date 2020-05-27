@@ -6,7 +6,7 @@
     <div class="intro-content display-table">
       <div class="table-cell">
         <div class="container">
-          <h2 class="intro-title mb-4">My Projects</h2>
+          <h2 class="intro-title mb-4">My {{ projects_count }} Project{{ projects_count|pluralize }}</h2>
         </div>
       </div>
     </div>
@@ -52,7 +52,7 @@
                   </div>
                   <div class="col-sm-4">
                     <div class="w-like">
-                      <a href="{% url 'portfolio:project' pk=project.pk %}" target="_blank" class="fas fa-arrow-circle-right"></a>
+                      <a href="{% url 'portfolio:project' pk=project.pk %}" class="fas fa-arrow-circle-right"></a>
                     </div>
                   </div>
                 </div>
@@ -70,7 +70,7 @@
               <ul class="pagination justify-content-center">
                 {% if projects.has_previous %}
                 <li class="page-item">
-                  <a class="page-link" href="?page={{ projects.previous_page_number }}#work">Previous</a>
+                  <a class="page-link" href="?page={{ projects.previous_page_number }}">Previous</a>
                 </li>
                 {% else %}
                 <li class="page-item disabled">
@@ -84,13 +84,13 @@
                     <a class="page-link" href="#">{{ i }} <span class="sr-only">(current)</span></a>
                   </li>
                   {% else %}
-                  <li class="page-item"><a class="page-link" href="?page={{ i }}#work">{{ i }}</a></li>
+                  <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
                   {% endif %}
                 {% endfor %}
 
                 {% if projects.has_next %}
                 <li class="page-item">
-                  <a class="page-link" href="?page={{ projects.next_page_number }}#work">Next</a>
+                  <a class="page-link" href="?page={{ projects.next_page_number }}">Next</a>
                 </li>
                 {% else %}
                 <li class="page-item disabled">

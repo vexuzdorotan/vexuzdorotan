@@ -30,7 +30,7 @@ def index(request):
 def projects(request):
     projects = Portfolio.objects.order_by('-date_added').filter(show=True)
     projects_count = Portfolio.objects.count()
-    paginator = Paginator(projects, 15)
+    paginator = Paginator(projects, 6)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
