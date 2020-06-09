@@ -27,15 +27,17 @@
           </div>
           <div class="work-content">
             <div class="row">
-              <div class="col-sm-10">
-                <h2 class="w-title">{{ project.title|truncatechars:40 }}</h2>
+              <div class="col">
+                <a href="{% url 'portfolio:project' pk=project.pk %}">
+                  <h2 class="w-title text-primary">{{ project.title|truncatechars:40 }}</h2>
+                </a>
                 <div class="w-more">
                   <p>{{ project.description|truncatechars:40 }}</p>
                   {% comment %} <span class="w-ctegory">Web Design</span> /  {% endcomment %}
                   {% if project.ongoing %}
                   <span class="w-date">Ongoing</span>
                   {% else %}
-                  <span class="w-date">{{ project.date_added|date:'M Y' }}</span>
+                  <span class="w-date">{{ project.date_added|timesince }} ago</span>
                   {% endif %}
                   {% if project.website_link %}
                   | <span class="w-ctegory"><a href="{{ project.website_link }}" target="blank">Live Website</a></span>
@@ -43,11 +45,6 @@
                   {% if project.github_link %}
                   | <span class="w-ctegory"><a href="{{ project.github_link }}" target="blank">Source Code</a></span>
                   {% endif %}
-                </div>
-              </div>
-              <div class="col-sm-2">
-                <div class="w-like">
-                  <a href="{% url 'portfolio:project' pk=project.pk %}" class="fas fa-arrow-circle-right"></a>
                 </div>
               </div>
             </div>
@@ -58,7 +55,12 @@
     </div>
 
     <div class="pb-5 text-center">
-      <button onclick="location.href='{% url 'portfolio:projects' %}'" type="button" class="btn btn-primary">More Works</button>
+      <button
+        onclick="location.href='{% url 'portfolio:projects' %}'"
+        type="button"
+        class="btn btn-primary btn-block w-50 m-auto">
+          View {{ projects_count_more }} More Work{{ projects_count_more|pluralize }}
+      </button>
     </div>
   </div>
 </section>

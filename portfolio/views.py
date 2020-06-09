@@ -8,22 +8,28 @@ from course.models import Course
 def index(request):
     technologies = Technology.objects.order_by('-rank').filter(show=True)
 
-    projects = Portfolio.objects.order_by('-date_added').filter(show=True)
+    projects = Portfolio.objects.order_by(
+        '-date_added').filter(show_to_home=True)
     projects_count = Portfolio.objects.count()
+    projects_count_more = projects_count - 6
     paginator = Paginator(projects, 6)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
-    courses = Course.objects.all().order_by('-date').filter(show=True)[:3]
+    courses = Course.objects.all().order_by(
+        '-date').filter(show_to_home=True)[:6]
     courses_count = Course.objects.count()
+    courses_count_more = courses_count - 6
 
     return render(request, 'portfolio/index.html', {
         'technologies': technologies,
         'projects': page_obj,
         'projects_count': projects_count,
+        'projects_count_more': projects_count_more,
         'nav': request.resolver_match.url_name,
         'courses': courses,
         'courses_count': courses_count,
+        'courses_count_more': courses_count_more,
     })
 
 

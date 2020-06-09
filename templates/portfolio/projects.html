@@ -42,17 +42,14 @@
               </div>
               <div class="work-content">
                 <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">{{ project.title|truncatechars:40 }}</h2>
+                  <div class="col">
+                    <a href="{% url 'portfolio:project' pk=project.pk %}">
+                      <h2 class="w-title text-primary">{{ project.title|truncatechars:40 }}</h2>
+                    </a>
                     <div class="w-more">
                       <p>{{ project.description|truncatechars:40 }}</p>
                       {% comment %} <span class="w-ctegory">Web Design</span> /  {% endcomment %}
-                      <span class="w-date">{{ project.date_added|date:'M Y' }}</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <a href="{% url 'portfolio:project' pk=project.pk %}" class="fas fa-arrow-circle-right"></a>
+                      <span class="w-date">{{ project.date_added|timesince }} ago</span>
                     </div>
                   </div>
                 </div>
@@ -63,7 +60,7 @@
         </div>
 
         <!-- Pagination -->
-        <div class="row">
+        <div class="row mb-5">
           <div class="col-md-12">
             <nav aria-label="...">
               {% if projects.has_other_pages %}

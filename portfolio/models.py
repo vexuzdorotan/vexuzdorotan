@@ -21,6 +21,7 @@ class Portfolio(models.Model):
     date_added = models.DateField()
     ongoing = models.BooleanField(default=True)
     show = models.BooleanField(default=True)
+    show_to_home = models.BooleanField(default=True)
     tags = models.ManyToManyField(Technology, blank=True)
 
     def __str__(self):

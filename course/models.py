@@ -14,6 +14,7 @@ class Course(models.Model):
     link = models.URLField()
     image = models.URLField()
     show = models.BooleanField(default=True)
+    show_to_home = models.BooleanField(default=True)
     date = models.DateField(auto_now_add=False)
     completed = models.IntegerField()
     code = models.URLField(blank=True)
