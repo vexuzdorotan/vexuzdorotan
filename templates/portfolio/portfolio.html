@@ -1,66 +1,44 @@
 {% load static %}
 
-<section id="work" class="portfolio-mf sect-pt4 route">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="title-box text-center">
-          <h3 class="title-a">
-            My Works
-          </h3>
-          <p class="subtitle-a">
-            Small and Medium Projects
-          </p>
-          <div class="line-mf"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      {% for project in projects %}
-      <div class="col-md-4">
-        <div class="work-box">
-          <div class="work-img">
-            <a href="{{ project.photo.url }}" data-gall="portfolioGallery" class="venobox">
-              <img src="{{ project.photo.url }}" alt="" class="img-fluid" style="width:100%">
-            </a>
-          </div>
-          <div class="work-content">
-            <div class="row">
-              <div class="col">
-                <a href="{% url 'portfolio:project' pk=project.pk %}">
-                  <h2 class="w-title text-primary">{{ project.title|truncatechars:40 }}</h2>
-                </a>
-                <div class="w-more">
-                  <p>{{ project.description|truncatechars:40 }}</p>
-                  {% comment %} <span class="w-ctegory">Web Design</span> /  {% endcomment %}
-                  {% if project.ongoing %}
+    <section id="project">
+      <div class="container my-5 p-3 vex-container-black">
+        <h1 class="text-center mb-3">My Projects</h1>
+        <div class="vex-line bg-primary"></div>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+          {% for project in projects %}
+          <div class="col mb-4">
+            <div class="card text-white bg-dark">
+              <img
+                src="{{ project.photo.url }}"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title text-primary">{{ project.title|truncatechars:40 }}</h5>
+                <p class="card-text">{{ project.description|truncatechars:40 }}</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">
+                {% if project.ongoing %}
                   <span class="w-date">Ongoing</span>
                   {% else %}
                   <span class="w-date">{{ project.date_added|timesince }} ago</span>
                   {% endif %}
                   {% if project.website_link %}
-                  | <span class="w-ctegory"><a href="{{ project.website_link }}" target="blank">Live Website</a></span>
+                  | <span class="w-ctegory"><a href="{{ project.website_link }}" target="blank">Demo</a></span>
                   {% endif %}
                   {% if project.github_link %}
                   | <span class="w-ctegory"><a href="{{ project.github_link }}" target="blank">Source Code</a></span>
                   {% endif %}
-                </div>
+                </small>
               </div>
             </div>
           </div>
+          {% endfor %}
         </div>
-      </div>
-      {% endfor %}
-    </div>
 
-    <div class="pb-5 text-center">
-      <button
-        onclick="location.href='{% url 'portfolio:projects' %}'"
-        type="button"
-        class="btn btn-primary btn-block w-50 m-auto">
+        <button type="button" class="btn btn-dark btn-md btn-block w-75 m-auto" onclick="location.href='{% url 'portfolio:projects' %}'">
           View {{ projects_count_more }} More Work{{ projects_count_more|pluralize }}
-      </button>
-    </div>
-  </div>
-</section>
+        </button>
+      </div>
+    </section>

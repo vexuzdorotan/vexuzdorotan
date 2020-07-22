@@ -1,60 +1,39 @@
 {% load static %}
 
-<section id="courses" class="blog-mf sect-pt4 route">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="title-box text-center">
-          <h3 class="title-a">
-            My Courses Taken
-          </h3>
-          <p class="subtitle-a">
-            | Udemy | YouTube |
-          </p>
-          <div class="line-mf"></div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      {% for course in courses %}
-      <div class="col-md-4">
-        <div class="card card-blog">
-          <div class="card-img">
-            <a href="{{ course.link }}" target="blank"><img src="{{ course.image }}" alt="" class="img-fluid" style="width: 100%;"></a>
-          </div>
-          <div class="card-body">
-            <div class="card-category-box">
+    <section id="course">
+      <div class="container my-5 p-3 vex-container-black">
+        <h1 class="text-center mb-3">My Courses Taken</h1>
+        <div class="vex-line bg-primary"></div>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+          {% for course in courses %}
+          <div class="col mb-4">
+            <div class="card text-white bg-dark">
               <a href="{{ course.link }}" target="blank">
-                <div class="card-category">
-                  <h6 class="category">{{ course.category }}</h6>
-                </div>
+                <img src="{{ course.image }}" class="card-img-top" alt="..." />
               </a>
-            </div>
-            <h3 class="card-title">{{ course.title }}</h3>
-            <p class="card-description">{{ course.description }}</p>
-          </div>
-          <div class="card-footer">
-            <div class="post-author">
+              <div class="card-body">
+                <h5 class="card-title text-primary">{{ course.title }}</h5>
                 <span class="author">{{ course.instructor }}</span>
-            </div>
-            <br>
-            <div class="post-date">
-              <span class="ion-ios-clock-outline"></span> {{ course.completed }}% Completed 
-              | {{ course.date|date:'M Y' }} 
-              {% if course.code %}
-              | <span><a href="{{ course.code }}" target="blank" style="color: blue;">My Codes</a></span> 
-              {% endif %}
+                <p class="card-text text-primary">{{ course.description }}</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">
+                  <span class="ion-ios-clock-outline"></span>
+                  {{ course.completed }}% Completed | {{ course.date|date:'M Y' }} 
+                  {% if course.code %}
+                  | <span><a href="{{ course.code }}" target="blank" style="color: blue;">
+                      My Codes</a>
+                    </span> 
+                  {% endif %}
+                </small>
+              </div>
             </div>
           </div>
+          {% endfor %}
         </div>
-      </div>
-      {% endfor %}
-    </div>
 
-    <div class="pb-5 text-center">
-      <button onclick="location.href='{% url 'course:index' %}'" type="button" class="btn btn-primary btn-block w-50 m-auto">
+        <button type="button" class="btn btn-dark btn-md btn-block w-75 m-auto" onclick="location.href='{% url 'course:index' %}'">
       View {{ courses_count_more }} More Course{{ courses_count_more|pluralize }}
       </button>
-    </div>
-  </div>
-</section>
+      </div>
+    </section>

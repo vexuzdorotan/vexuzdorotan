@@ -1,0 +1,60 @@
+{% load static %}
+
+<section id="courses" class="blog-mf sect-pt4 route">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="title-box text-center">
+          <h3 class="title-a">
+            My Courses Taken
+          </h3>
+          <p class="subtitle-a">
+            | Udemy | YouTube |
+          </p>
+          <div class="line-mf"></div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      {% for course in courses %}
+      <div class="col-md-4">
+        <div class="card card-blog">
+          <div class="card-img">
+            <a href="{{ course.link }}" target="blank"><img src="{{ course.image }}" alt="" class="img-fluid" style="width: 100%;"></a>
+          </div>
+          <div class="card-body">
+            <div class="card-category-box">
+              <a href="{{ course.link }}" target="blank">
+                <div class="card-category">
+                  <h6 class="category">{{ course.category }}</h6>
+                </div>
+              </a>
+            </div>
+            <h3 class="card-title">{{ course.title }}</h3>
+            <p class="card-description">{{ course.description }}</p>
+          </div>
+          <div class="card-footer">
+            <div class="post-author">
+                <span class="author">{{ course.instructor }}</span>
+            </div>
+            <br>
+            <div class="post-date">
+              <span class="ion-ios-clock-outline"></span> {{ course.completed }}% Completed 
+              | {{ course.date|date:'M Y' }} 
+              {% if course.code %}
+              | <span><a href="{{ course.code }}" target="blank" style="color: blue;">My Codes</a></span> 
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="pb-5 text-center">
+      <button onclick="location.href='{% url 'course:index' %}'" type="button" class="btn btn-primary btn-block w-50 m-auto">
+      View {{ courses_count_more }} More Course{{ courses_count_more|pluralize }}
+      </button>
+    </div>
+  </div>
+</section>
