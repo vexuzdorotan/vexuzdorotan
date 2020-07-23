@@ -6,29 +6,29 @@
         <div class="vex-line bg-primary"></div>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
           {% for project in projects %}
-          <div class="col mb-4">
-            <div class="card text-white bg-dark">
+          <div class="col mb-3">
+            <div class="card text-dark">
               <img
                 src="{{ project.photo.url }}"
                 class="card-img-top"
                 alt="..."
               />
               <div class="card-body">
-                <h5 class="card-title text-primary">{{ project.title|truncatechars:40 }}</h5>
-                <p class="card-text">{{ project.description|truncatechars:40 }}</p>
+                <h6 class="card-title">{{ project.title|truncatechars:40 }}</h6>
+                <small class="card-text">{{ project.description|truncatechars:40 }}</small>
               </div>
               <div class="card-footer">
                 <small class="text-muted">
                 {% if project.ongoing %}
-                  <span class="w-date">Ongoing</span>
+                  <span>Ongoing</span>
                   {% else %}
-                  <span class="w-date">{{ project.date_added|timesince }} ago</span>
+                  <span>{{ project.date_added|timesince }} ago</span>
                   {% endif %}
                   {% if project.website_link %}
-                  | <span class="w-ctegory"><a href="{{ project.website_link }}" target="blank">Demo</a></span>
+                  | <span><a href="{{ project.website_link }}" target="blank">Demo</a></span>
                   {% endif %}
                   {% if project.github_link %}
-                  | <span class="w-ctegory"><a href="{{ project.github_link }}" target="blank">Source Code</a></span>
+                  | <span><a href="{{ project.github_link }}" target="blank">Source Code</a></span>
                   {% endif %}
                 </small>
               </div>
@@ -37,7 +37,7 @@
           {% endfor %}
         </div>
 
-        <button type="button" class="btn btn-dark btn-md btn-block w-75 m-auto" onclick="location.href='{% url 'portfolio:projects' %}'">
+        <button type="button" class="btn btn-primary btn-md btn-block w-75 m-auto" onclick="location.href='{% url 'portfolio:projects' %}'">
           View {{ projects_count_more }} More Work{{ projects_count_more|pluralize }}
         </button>
       </div>

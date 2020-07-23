@@ -5,8 +5,8 @@
         <h1 class="text-center mb-3">About Me</h1>
         <div class="vex-line bg-primary"></div>
         <div class="row">
-          <img src="{% static 'img/avatar.jpg' %}" alt="" class="col-md-6" />
-          <aside class="col-md-6 about-info">
+          <img src="{% static 'img/avatar.jpg' %}" alt="" class="col-md-4 rounded-circle my-2 avatar" />
+          <aside class="col-md-8 about-info">
             <h3 class="text-primary">Web Developer</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
@@ -15,22 +15,22 @@
             </p>
             <div class="personal">
               <p>
-                <span class="text-primary font-weight-bolder">Age: </span>24
-              </p>
-              <p>
-                <span class="text-primary font-weight-bolder">Birthday: </span
-                >September 30, 1995
+                <span class="text-primary font-weight-bolder">Name: </span>Jonnel Salvador S. Dorotan
               </p>
               <p>
                 <span class="text-primary font-weight-bolder">Location: </span
                 >Quezon City, Philippines
               </p>
               <p>
+                <span class="text-primary font-weight-bolder">E-mail: </span
+                >vexuzdorotan@gmail.com
+              </p>
+              <p>
                 <span class="text-primary font-weight-bolder">College: </span
                 >Rizal Technological University
               </p>
               <p>
-                <span class="text-primary font-weight-bolder">Course: </span
+                <span class="text-primary font-weight-bolder">Degree: </span
                 >Bachelor of Science in Computer Engineering
               </p>
             </div>
@@ -46,33 +46,10 @@
           </aside>
         </div>
 
-        <!-- Skills -->
-        <h1 class="text-center mt-5 mb-3">My Tech Stacks</h1>
-        <div class="vex-line bg-primary"></div>
-        <div class="row justify-items-center">
-          {% for tech in technologies %}
-          <div class="col-lg-6">
-            <div class="d-flex align-items-center font-weight-bolder">
-              <span
-                class="{{ tech.icon }} mr-2 text-primary"
-                aria-hidden="true"
-              ></span>
-              <span>{{ tech.title }}</span> <span class="ml-auto">{{ tech.percent }}%</span>
-            </div>
-            <div class="progress mb-2">
-              <div
-                class="progress-bar"
-                role="progressbar"
-                style="width: {{ tech.percent }}%;"
-                aria-valuenow="{{ tech.percent }}"
-                aria-valuemin="0"
-                aria-valuemax="100"
-              >
-                25%
-              </div>
-            </div>
-          </div>
-          {% endfor %}
-        </div>
+        {% comment %} <div class="github-contrib m-3">
+        <h1 class="text-center mb-3">My GitHub Public Contributions</h1>
+        <div class="vex-line vex-line-parallax bg-primary"></div>
+          <img src="http://ghchart.rshah.org/007bff/vexuzdorotan" alt="vexuzdorotan's Github chart" style="width: 100%;" />
+        </div> {% endcomment %}
       </div>
     </section>

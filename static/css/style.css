@@ -1,7 +1,12 @@
 :root {
   --vex-light-color: #ccc;
   --vex-black-color: #000;
-  --vex-black-color-container: rgba(0, 0, 0, 0.8);
+  --vex-black-color-alpha: rgba(0, 0, 0, 0.8);
+}
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -18,7 +23,11 @@ body::before {
   right: 0;
   height: 100vh;
   z-index: -1;
-  opacity: 0.05;
+  opacity: 0.15;
+}
+
+a {
+  text-decoration: none;
 }
 
 /* Utils */
@@ -26,9 +35,13 @@ body::before {
   background: var(--vex-black-color);
 }
 
+.vex-bg-black-alpha {
+  background: var(--vex-black-color-alpha);
+}
+
 .vex-container-black {
   /* position: relative; */
-  background: var(--vex-black-color-container);
+  background: var(--vex-black-color-alpha);
   border: 0.1rem solid rgba(0, 123, 255, 0.1);
 }
 
@@ -47,10 +60,6 @@ body::before {
   z-index: -1;
 } */
 
-.vex-parallax {
-  height: 15rem;
-}
-
 .vex-line {
   height: 0.3rem;
   width: 5rem;
@@ -58,19 +67,20 @@ body::before {
   margin: 0 auto 2rem auto;
 }
 
-/* Add the below transitions to allow a smooth color change similar to lyft */
+/* Parallax */
+
+/* Navbar */
 .navbar {
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
+  right: 0;
   z-index: 2;
   -webkit-transition: all 0.6s ease-out;
   -moz-transition: all 0.6s ease-out;
   -o-transition: all 0.6s ease-out;
   -ms-transition: all 0.6s ease-out;
   transition: all 0.6s ease-out;
-  /* border-bottom: 0.3rem solid var(--vex-black-color); */
-  /* background: transparent !important; */
 }
 
 .navbar.scrolled {
@@ -79,7 +89,6 @@ body::before {
 }
 
 /* Showcase */
-
 #header-home {
   position: relative;
   background: #333;
@@ -99,7 +108,7 @@ body::before {
 }
 
 #header-home .container .row {
-  height: 95vh;
+  height: 100vh;
 }
 
 #header-home .row .col {
@@ -107,8 +116,9 @@ body::before {
 }
 
 /* About */
-#about img {
+#about .avatar {
   border-radius: 2rem;
+  height: 100%;
 }
 
 /* Project */
@@ -126,8 +136,14 @@ body::before {
   transform-origin: 50% 50%;
 }
 
+/* Course */
+.vex-course-user {
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+}
+
+/* Footer */
 #footer {
-  /* position: sticky; */
   margin-top: 3rem !important;
   bottom: 0;
   z-index: 2;
@@ -136,7 +152,25 @@ body::before {
 
 /* Responsive Media Queries */
 @media (max-width: 576px) {
-  .vex-parallax {
-    height: 10rem;
+  .parallax-b h1 {
+    /* font-size: 1rem; */
   }
+
+  .parallax-b img {
+    transform: scale(1.15, 1.5);
+    margin-bottom: 1rem;
+  }
+
+  #header-home h1 {
+    font-size: 3rem;
+  }
+}
+
+/* Bootstrap Override */
+.card-body {
+  padding: 0.5rem;
+}
+
+.card-title {
+  margin-bottom: 0;
 }

@@ -1,5 +1,5 @@
 const clientHeight = document.querySelector('#navbar').offsetHeight;
-// const showcaseHeight = document.querySelector('#header-home').offsetHeight;
+const showcaseHeight = document.querySelector('#header-home').offsetHeight;
 const date = document.querySelector('#date');
 date.textContent = new Date().getFullYear();
 
@@ -22,13 +22,14 @@ $(document).ready(function () {
 });
 
 // Navbar Overlay
-// window.addEventListener('scroll', () => {
-//   if (window.scrollY > showcaseHeight) {
-//     document.querySelector('#navbar').style.opacity = 0.5;
-//   } else {
-//     document.querySelector('#navbar').style.opacity = 1;
-//   }
-// });
+window.addEventListener('scroll', () => {
+  if (window.scrollY > showcaseHeight - 16) {
+    document.querySelector('#navbar').style.backgroundColor =
+      'rgba(0, 0, 0, 0.9)';
+  } else {
+    document.querySelector('#navbar').style.backgroundColor = 'transparent';
+  }
+});
 
 // Typewriter
 class TypeWriter {
@@ -61,7 +62,7 @@ class TypeWriter {
     this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
 
     // Initial Type Speed
-    let typeSpeed = 300;
+    let typeSpeed = 100;
 
     if (this.isDeleting) {
       typeSpeed /= 2;

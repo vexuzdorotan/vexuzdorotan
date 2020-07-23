@@ -4,35 +4,34 @@
       <div class="container my-5 p-3 vex-container-black">
         <h1 class="text-center mb-3">My Courses Taken</h1>
         <div class="vex-line bg-primary"></div>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+        <div class="row row-cols-1 row-cols-lg-2">
           {% for course in courses %}
-          <div class="col mb-4">
-            <div class="card text-white bg-dark">
-              <a href="{{ course.link }}" target="blank">
-                <img src="{{ course.image }}" class="card-img-top" alt="..." />
-              </a>
-              <div class="card-body">
-                <h5 class="card-title text-primary">{{ course.title }}</h5>
-                <span class="author">{{ course.instructor }}</span>
-                <p class="card-text text-primary">{{ course.description }}</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">
-                  <span class="ion-ios-clock-outline"></span>
-                  {{ course.completed }}% Completed | {{ course.date|date:'M Y' }} 
-                  {% if course.code %}
-                  | <span><a href="{{ course.code }}" target="blank" style="color: blue;">
-                      My Codes</a>
-                    </span> 
-                  {% endif %}
-                </small>
+          <div class="col mb-3">
+          <div class="card mx-2 mb-2">
+            <div class="row">
+              <div class="col">
+                <div class="card-body">
+                  <p class="card-title text-dark">
+                    <i class="fas fa-award mr-2 text-primary"></i>{{ course.title }}
+                  </p>
+                </div>
+                <div class="card-footer py-0">
+                  <small class="card-text text-muted">
+                      <span class="ion-ios-clock-outline"></span>
+                      {{ course.completed }}% Done | {{ course.date|date:'M Y' }} 
+                      {% if course.code %}
+                      | <a href="{{ course.code }}" class="badge badge-primary">My Codes</a> 
+                      {% endif %}
+                    </small>
+                  </div>
               </div>
             </div>
+          </div>
           </div>
           {% endfor %}
         </div>
 
-        <button type="button" class="btn btn-dark btn-md btn-block w-75 m-auto" onclick="location.href='{% url 'course:index' %}'">
+        <button type="button" class="btn btn-primary btn-md btn-block w-75 m-auto" onclick="location.href='{% url 'course:index' %}'">
       View {{ courses_count_more }} More Course{{ courses_count_more|pluralize }}
       </button>
       </div>
