@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <div class="intro intro-single route bg-image" style="background-image: url({{ post.photo.url }})">
+  {% comment %} <div class="intro intro-single route bg-image" style="background-image: url({{ post.photo.url }})">
     <div class="overlay-mf"></div>
     <div class="intro-content display-table">
       <div class="table-cell">
@@ -10,90 +10,55 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> {% endcomment %}
 
-  <main id="main">
+  <section class="course">
+    <div class="container mt-5 p-3 vex-container-black">
+      <h1 class="text-center mb-3">My Courses Taken</h1>
+      <div class="vex-line bg-primary"></div>
+      
+      {% include 'portfolio/course_content.html' %}
 
-    <!-- ======= Post Single Section ======= -->
-    <section class="blog-wrapper sect-pt4" id="blog">
-      <div class="container">
-        <div class="row">
-          {% for course in courses %}
-          <div class="col-md-4">
-            <div class="card card-blog">
-              <div class="card-img">
-                <a href="{{ course.link }}" target="blank"><img src="{{ course.image }}" alt="" class="img-fluid" style="width: 100%;"></a>
-              </div>
-              <div class="card-body">
-                <div class="card-category-box">
-                  <div class="card-category">
-                    <a href="{{ course.link }}" target="blank"><h6 class="category">{{ course.category }}</h6></a>
-                  </div>
-                </div>
-                <h3 class="card-title">{{ course.title }}</h3>
-                <p class="card-description">{{ course.description }}</p>
-              </div>
-              <div class="card-footer">
-                <div class="post-author">
-                    <span class="author">{{ course.instructor }}</span>
-                </div>
-                <br>
-                <div class="post-date">
-                  <span class="ion-ios-clock-outline"></span> {{ course.completed }}% Completed 
-                  | {{ course.date|date:'M Y' }} 
-                  {% if course.code %}
-                  | <span><a href="{{ course.code }}" target="blank" style="color: blue;">My Codes</a></span> 
-                  {% endif %}
-                </div>
-              </div>
-            </div>
-          </div>
-          {% endfor %}
-        </div>
+      <!-- Pagination -->
+      <div class="row mx-auto mt-3 mb-5">
+        <div class="col">
+          <nav aria-label="...">
+            {% if courses.has_other_pages %}
+            <ul class="pagination justify-content-center">
+              {% if courses.has_previous %}
+              <li class="page-item">
+                <a class="page-link" href="?page={{ courses.previous_page_number }}">Previous</a>
+              </li>
+              {% else %}
+              <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+              </li>
+              {% endif %}
 
-        <!-- Pagination -->
-        <div class="row mb-5">
-          <div class="col-md-12">
-            <nav aria-label="...">
-              {% if courses.has_other_pages %}
-              <ul class="pagination justify-content-center">
-                {% if courses.has_previous %}
-                <li class="page-item">
-                  <a class="page-link" href="?page={{ courses.previous_page_number }}">Previous</a>
+              {% for i in courses.paginator.page_range %}
+                {% if courses.number == i %}
+                <li class="page-item active" aria-current="page">
+                  <a class="page-link" href="#">{{ i }} <span class="sr-only">(current)</span></a>
                 </li>
                 {% else %}
-                <li class="page-item disabled">
-                  <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                </li>
+                <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
                 {% endif %}
+              {% endfor %}
 
-                {% for i in courses.paginator.page_range %}
-                  {% if courses.number == i %}
-                  <li class="page-item active" aria-current="page">
-                    <a class="page-link" href="#">{{ i }} <span class="sr-only">(current)</span></a>
-                  </li>
-                  {% else %}
-                  <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
-                  {% endif %}
-                {% endfor %}
-
-                {% if courses.has_next %}
-                <li class="page-item">
-                  <a class="page-link" href="?page={{ courses.next_page_number }}">Next</a>
-                </li>
-                {% else %}
-                <li class="page-item disabled">
-                  <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Next</a>
-                </li>
-                {% endif %}
-              </ul>
-            </nav>
-            {% endif %}
-          </div>
+              {% if courses.has_next %}
+              <li class="page-item">
+                <a class="page-link" href="?page={{ courses.next_page_number }}">Next</a>
+              </li>
+              {% else %}
+              <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Next</a>
+              </li>
+              {% endif %}
+            </ul>
+          </nav>
+          {% endif %}
         </div>
       </div>
-    </section><!-- End Post Single Section -->
-
-  </main><!-- End #main -->
-
+    </div>
+  </section>
 {% endblock content %}

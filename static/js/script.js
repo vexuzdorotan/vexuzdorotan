@@ -1,7 +1,17 @@
-const clientHeight = document.querySelector('#navbar').offsetHeight;
-const showcaseHeight = document.querySelector('#header-home').offsetHeight;
 const date = document.querySelector('#date');
 date.textContent = new Date().getFullYear();
+
+const clientHeight = document.querySelector('#navbar').offsetHeight;
+let showcaseHeight = 0;
+let hasShowcase = false;
+
+if (document.querySelector('#header-home') !== null) {
+  hasShowcase = true;
+}
+
+if (hasShowcase) {
+  showcaseHeight = document.querySelector('#header-home').offsetHeight;
+}
 
 // Smooth Scroll
 $(document).ready(function () {
@@ -21,13 +31,34 @@ $(document).ready(function () {
   });
 });
 
+// Back to Top
+$(window).scroll(function () {
+  if ($(this).scrollTop() > 100) {
+    $('.back-to-top').fadeIn('slow');
+  } else {
+    $('.back-to-top').fadeOut('slow');
+  }
+});
+$('.back-to-top').click(function () {
+  $('html, body').animate(
+    {
+      scrollTop: 0,
+    },
+    1500,
+    'easeInOutExpo'
+  );
+  return false;
+});
+
 // Navbar Overlay
 window.addEventListener('scroll', () => {
   if (window.scrollY > showcaseHeight - 16) {
     document.querySelector('#navbar').style.backgroundColor =
       'rgba(0, 0, 0, 0.9)';
+    // document.querySelector('.back-to-top').style.display = 'block';
   } else {
     document.querySelector('#navbar').style.backgroundColor = 'transparent';
+    // document.querySelector('.back-to-top').style.display = 'none';
   }
 });
 
@@ -91,9 +122,11 @@ document.addEventListener('DOMContentLoaded', init);
 
 // Init App
 function init() {
-  const txtElement = document.querySelector('.txt-type');
-  const words = JSON.parse(txtElement.getAttribute('data-words'));
-  const wait = txtElement.getAttribute('data-wait');
-  // Init TypeWriter
-  new TypeWriter(txtElement, words, wait);
+  if (hasShowcase) {
+    const txtElement = document.querySelector('.txt-type');
+    const words = JSON.parse(txtElement.getAttribute('data-words'));
+    const wait = txtElement.getAttribute('data-wait');
+    // Init TypeWriter
+    new TypeWriter(txtElement, words, wait);
+  }
 }
