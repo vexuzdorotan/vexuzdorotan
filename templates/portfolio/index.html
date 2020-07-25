@@ -1,29 +1,16 @@
 {% extends 'base.html' %}
   
 {% block content %}  
-  <main id="main">
-    <!-- ======= Intro Section ======= -->
-    {% include 'portfolio/intro.html' %}
+  {% include 'portfolio/intro.html' %}
 
-    <!-- ======= About Section ======= -->
-    {% include 'portfolio/about.html' %}
+  {% include 'portfolio/about.html' %}
 
-    <!-- ======= Services Section ======= -->
-    {% comment %} {% include 'portfolio/services.html' %} {% endcomment %}
+  {% include 'portfolio/project_parallax.html' %}
 
-    <!-- ======= Counter Section ======= -->
-    {% include 'portfolio/project_parallax.html' %}
+  {% include 'portfolio/portfolio.html' %}
 
-    <!-- ======= Portfolio Section ======= -->
-    {% include 'portfolio/portfolio.html' %}
+  {% comment %} {% include 'portfolio/course_parallax.html' %} {% endcomment %}
 
-    <!-- ======= Testimonials Section ======= -->
-    {% comment %} {% include 'portfolio/course_parallax.html' %} {% endcomment %}
+  {% include 'portfolio/courses.html' %}
 
-    <!-- ======= Blog Section ======= -->
-    {% include 'portfolio/courses.html' %}
-
-    <!-- ======= Contact Section ======= -->
-    {% comment %} {% include 'portfolio/contact.html' %} {% endcomment %}
-  </main>
 {% endblock %}

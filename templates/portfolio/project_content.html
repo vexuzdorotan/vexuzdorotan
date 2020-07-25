@@ -4,11 +4,13 @@
           {% for project in projects %}
           <div class="col mb-3">
             <div class="card text-dark">
+              <div class="card-img">
               <img
                 src="{{ project.photo.url }}"
                 class="card-img-top"
                 alt="..."
               />
+              </div>
               <div class="card-body">
                 <h6 class="card-title">{{ project.title|truncatechars:40 }}</h6>
                 <small class="card-text">{{ project.description|truncatechars:40 }}</small>
