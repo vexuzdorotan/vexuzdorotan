@@ -82,7 +82,26 @@ a:hover {
   margin: 0 auto 2rem auto;
 }
 
-/* Parallax */
+/* Skill */
+.skill-grid {
+  text-align: center;
+  /* display: grid; */
+  /* display: inline; */
+  /* grid-template-rows: repeat(auto-fit, minmax(300px, 1fr)); */
+}
+
+.skill-grid span {
+  /* display: inline; */
+  /* width: 100%; */
+  margin: 0 0.3rem 1rem;
+  font-size: 1rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.skill-grid span:hover {
+  /* transform: rotate(5deg) scale(1.05); */
+  transform: rotate(360deg);
+}
 
 /* Navbar */
 .navbar {

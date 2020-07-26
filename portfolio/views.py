@@ -1,12 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from .models import Portfolio, Technology
+from .models import Portfolio, Technology, Application
 from course.models import Course
 
 
 def index(request):
     technologies = Technology.objects.order_by('-rank').filter(show=True)
+    applications = Application.objects.order_by('-rank').filter(show=True)
 
     projects = Portfolio.objects.order_by(
         '-date_added').filter(show_to_home=True)
@@ -23,6 +24,7 @@ def index(request):
 
     return render(request, 'portfolio/index.html', {
         'technologies': technologies,
+        'applications': applications,
         'projects': page_obj,
         'projects_count': projects_count,
         'projects_count_more': projects_count_more,

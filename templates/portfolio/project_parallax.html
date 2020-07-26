@@ -5,9 +5,10 @@
         <div class="tech-stack mb-5">
           <h1 class="text-center mb-3">My Tech Stacks</h1>
           <div class="vex-line vex-line-parallax bg-dark"></div>
-          <div class="row">
+          <div class="skill-grid">
             {% for tech in technologies %}
-            <div class="col-lg-6">
+              <span class="badge badge-pill badge-light text-primary">{{ tech.title }}</span>
+            {% comment %} <div class="col-lg-6">
               <div class="d-flex align-items-center font-weight-bolder">
                 <span
                   class="{{ tech.icon }} mr-2 text-light"
@@ -27,7 +28,13 @@
                   25%
                 </div>
               </div>
-            </div>
+            </div> {% endcomment %}
+            {% endfor %}
+
+            <div class="mb-3"></div>
+
+            {% for app in applications %}
+              <span class="badge badge-pill badge-light text-primary">{{ app.title }}</span>
             {% endfor %}
           </div>
         </div>

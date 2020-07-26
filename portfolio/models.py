@@ -3,9 +3,18 @@ from django.db import models
 
 class Technology(models.Model):
     title = models.CharField(max_length=50)
-    percent = models.IntegerField()
-    icon = models.CharField(max_length=50, blank=True)
-    rank = models.IntegerField()
+    # percent = models.IntegerField(blank=True)
+    # icon = models.CharField(max_length=50, blank=True)
+    rank = models.IntegerField(blank=True)
+    show = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.title
+
+
+class Application(models.Model):
+    title = models.CharField(max_length=50)
+    rank = models.IntegerField(blank=True)
     show = models.BooleanField(default=True)
 
     def __str__(self):
