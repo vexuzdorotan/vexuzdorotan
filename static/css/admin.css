@@ -1,0 +1,26 @@
+#header {
+  flex-direction: column;
+  background: #18d26e;
+  color: #fff;
+}
+
+.back-to-main:hover {
+  text-decoration: none;
+}
+
+input[type='submit'] {
+  background: #18d26e;
+  color: #fff;
+}
+
+input[type='submit']:hover {
+  background: #18d26e;
+  color: #fff;
+  opacity: 0.9 !important;
+}
+
+@media (max-width: 767px) {
+  body.login {
+    margin-top: 10rem;
+  }
+}

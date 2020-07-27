@@ -31,6 +31,7 @@ class Portfolio(models.Model):
     ongoing = models.BooleanField(default=True)
     show = models.BooleanField(default=True)
     show_to_home = models.BooleanField(default=True)
+    from_scratch = models.BooleanField(default=True)
     tags = models.ManyToManyField(Technology, blank=True)
 
     def __str__(self):

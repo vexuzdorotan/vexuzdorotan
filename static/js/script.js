@@ -14,6 +14,36 @@ if (hasShowcase) {
 }
 
 $(document).ready(() => {
+  if (window.location.pathname === '/') {
+    // daily quotes
+    const settings = {
+      async: true,
+      crossDomain: true,
+      url: 'https://type.fit/api/quotes',
+      method: 'GET',
+    };
+
+    $.ajax(settings).done((response) => {
+      const data = JSON.parse(response).filter(
+        (datum) => datum.author !== null
+      );
+      const i = Math.floor(Math.random() * Math.floor(data.length));
+
+      document.querySelector(
+        '.quotes-text'
+      ).innerHTML = `&emsp; "${data[i].text}"`;
+      document.querySelector(
+        '.quotes-author'
+      ).textContent = `-${data[i].author}`;
+    });
+
+    // get age
+    const age = document.querySelector('#age');
+    age.textContent = Math.floor(
+      (new Date() - new Date('1995-09-30').getTime()) / 3.15576e10
+    );
+  }
+
   // close navbar on click outside
   $(document).click((e) => {
     const target = $(e.target);
@@ -100,7 +130,7 @@ class TypeWriter {
     this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
 
     // Initial Type Speed
-    let typeSpeed = 100;
+    let typeSpeed = 50;
 
     if (this.isDeleting) {
       typeSpeed /= 2;
@@ -117,7 +147,7 @@ class TypeWriter {
       // Move to next word
       this.wordIndex++;
       // Pause before start typing
-      typeSpeed = 500;
+      typeSpeed = 250;
     }
 
     setTimeout(() => this.type(), typeSpeed);

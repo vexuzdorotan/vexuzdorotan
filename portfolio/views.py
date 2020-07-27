@@ -47,7 +47,7 @@ def projects(request):
         'projects_count': projects_count,
         'nav': request.resolver_match.url_name,
     }
-    return render(request, 'portfolio/projects.html', context)
+    return render(request, 'portfolio/projects_other.html', context)
 
 
 def project(request, pk):
