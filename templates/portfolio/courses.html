@@ -14,7 +14,10 @@
                   <div class="card text-dark">
                     <div class="card-body">
                       <p class="card-title">
-                        <i class="fas fa-flag-checkered mr-2 text-primary"></i>{{ course.title }}
+                        <i class="fas fa-flag-checkered text-primary"></i>
+                        <a href="{{ course.link }}" target="blank" class="course-title">
+                          {{ course.title }}
+                        </a>
                       </p>
                     </div>
                     <div class="card-footer py-0">
@@ -26,7 +29,12 @@
                             <span class="iconify" data-icon="ant-design:youtube-filled" data-inline="false"></span>
                           {% endif %}
                         </span>
-                        {{ course.completed }}% Done | {{ course.date|date:'M Y' }} 
+                        <span>
+                          {{ course.hours|floatformat:"-1" }} Hours
+                        </span>
+                        <span>
+                          | {% if course.completed != 100 %}~{% endif %}{{ course.completed }}% Done | {{ course.date|date:'M Y' }} 
+                        </span>
                         {% if course.code %}
                         | <span class="mb-2">
                           <a href="{{ course.code }}" target="blank" class="badge badge-primary">

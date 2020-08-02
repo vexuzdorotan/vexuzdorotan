@@ -1,6 +1,6 @@
 {% load static %}
 
-<nav id="navbar" class="navbar navbar-expand-lg navbar-dark vex-bg-black-alpha">
+      <nav id="navbar" class="navbar navbar-expand-lg navbar-dark vex-bg-black-alpha">
       <div class="container">
         <a class="navbar-brand" href="{% url 'portfolio:index' %}">VeXfolio</a>
         <div class="social-links">
@@ -17,6 +17,13 @@
               class="mr-3 text-light"
               aria-hidden="true"
               ><i class="fab fa-github"></i
+            ></a>
+            <a
+              href="https://stackoverflow.com/users/10217282/jonnel-vexuz-dorotan"
+              target="blank"
+              class="mr-3 text-light"
+              aria-hidden="true"
+              ><i class="fab fa-stack-overflow"></i
             ></a>
             <a
               href="https://www.linkedin.com/in/jonneldorotan/"
@@ -41,22 +48,22 @@
           class="collapse navbar-collapse justify-content-end"
           id="navbarNav"
         >
-          <ul class="navbar-nav">
+          <ul class="navbar-nav nav nav-pills nav-fill">
             {% url 'portfolio:index' as index %}
 
             {% if request.path == index %}
 
             <li class="nav-item">
-              <a class="nav-link" href="#home" data-toggle="collapse" data-target=".navbar-collapse.show">Home</a>
+              <a class="nav-link" href="#home">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#about" data-toggle="collapse" data-target=".navbar-collapse.show">About</a>
+              <a class="nav-link" href="#about">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#project" data-toggle="collapse" data-target=".navbar-collapse.show">Projects</a>
+              <a class="nav-link" href="#project">Projects</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#course" data-toggle="collapse" data-target=".navbar-collapse.show">Courses</a>
+              <a class="nav-link" href="#course">Courses</a>
             </li>
 
             {% else %}

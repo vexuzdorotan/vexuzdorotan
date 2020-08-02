@@ -19,9 +19,9 @@
               </div>
               <div class="card-body">
                 <h6 class="card-title">{{ project.title|truncatechars:40 }}</h6>
-                <small class="card-text">{{ project.description|truncatechars:50 }}</small>
+                <small class="card-text">{{ project.description|truncatechars:100 }}</small>
               </div>
-              <div class="card-footer">
+              <div class="card-footer py-0">
                 <small class="text-muted">
                   {% if project.from_scratch %}
                     <i class="fas fa-star"></i>

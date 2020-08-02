@@ -17,6 +17,7 @@ class Course(models.Model):
     show_to_home = models.BooleanField(default=True)
     date = models.DateField(auto_now_add=False)
     completed = models.IntegerField()
+    hours = models.DecimalField(max_digits=5, decimal_places=2, default=0)
     code = models.URLField(blank=True)
 
     def __str__(self):
