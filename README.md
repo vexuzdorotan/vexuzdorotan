@@ -13,8 +13,7 @@
 <br />
 <br />
 
-I am self-motivated and self-taught backend web developer from the Philippines.
-I am willing to work on mobile/desktop development, and implement AI or machine learning libraries on web development in the future. 
+I am self-motivated and self-taught web developer from the Philippines.
 During my spare time, I build websites or web apps with MERN Stack to improve my programming abilities.
 You can view my portfolio here at [vexuzdorotan.pythonanywhere.com](https://vexuzdorotan.pythonanywhere.com/)!
 
@@ -24,23 +23,20 @@ You can view my portfolio here at [vexuzdorotan.pythonanywhere.com](https://vexu
 
 ```javascript
 const VEXUZ_DOROTAN = {
-  frontend: ['React', 'Material UI', 'Bootstrap'],
-  backend: ['Node.js', 'Express', 'Mongoose', 'Django'],
+  frontend: ['React', 'JavaScript', 'Bootstrap'],
+  backend: ['Node.js', 'Express', 'Django'],
   datastore: ['MongoDB', 'PostgreSQL'],
+  infrastructure: ['Heroku', 'Firebase', 'PythonAnywhere'],
   tool: ['Git', 'Postman', 'MongoDBCompass', 'VSCode']
 }
 ```
 
 ---
 
-<img src="https://raw.githubusercontent.com/vexuzdorotan/vexuzdorotan/master/static/img/intro-bg-min.jpg" alt="VeXuZ | Intro" align="right">
-
 **VeXuZ | About** 😎
 
 - 👨‍💻 Jonnel Salvador S. Dorotan
-- 🎂 September 30, 1995
 - 🏡 Quezon City, Philippines
 - 📧 vexuzdorotan@gmail.com
-- 📱 +63 977 674 1162
-- 👨‍🎓 BS in Computer Engineering
+- 👨‍🎓 Bachelor of Science in Computer Engineering
 - 🏫 Rizal Technological University
