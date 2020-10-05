@@ -23,7 +23,7 @@ class Application(models.Model):
 
 class Portfolio(models.Model):
     title = models.CharField(max_length=50)
-    description = models.TextField()
+    description = models.TextField(max_length=200)
     photo = models.ImageField(upload_to='portfolio')
     github_link = models.URLField(blank=True)
     website_link = models.URLField(blank=True)

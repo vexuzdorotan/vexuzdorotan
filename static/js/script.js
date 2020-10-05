@@ -38,10 +38,10 @@ $(document).ready(() => {
     });
 
     // get age
-    const age = document.querySelector('#age');
-    age.textContent = Math.floor(
-      (new Date() - new Date('1995-09-30').getTime()) / 3.15576e10
-    );
+    // const age = document.querySelector('#age');
+    // age.textContent = Math.floor(
+    //   (new Date() - new Date('1995-09-30').getTime()) / 3.15576e10
+    // );
   }
 
   // close navbar on click outside

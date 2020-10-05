@@ -1,81 +1,82 @@
 {% load static %}
 
-      <nav id="navbar" class="navbar navbar-expand-lg navbar-dark vex-bg-black-alpha">
-      <div class="container">
-        <a class="navbar-brand" href="{% url 'portfolio:index' %}">VeXfolio</a>
-        <div class="social-links">
-            <a
-              href="https://www.facebook.com/dorotan.Jonnel"
-              target="blank"
-              class="mr-3 text-light"
-              aria-hidden="true"
-              ><i class="fab fa-facebook"></i
-            ></a>
-            <a
-              href="https://github.com/vexuzdorotan"
-              target="blank"
-              class="mr-3 text-light"
-              aria-hidden="true"
-              ><i class="fab fa-github"></i
-            ></a>
-            <a
-              href="https://stackoverflow.com/users/10217282/jonnel-vexuz-dorotan"
-              target="blank"
-              class="mr-3 text-light"
-              aria-hidden="true"
-              ><i class="fab fa-stack-overflow"></i
-            ></a>
-            <a
-              href="https://www.linkedin.com/in/jonneldorotan/"
-              target="blank"
-              class="mr-3 text-light"
-              aria-hidden="true"
-              ><i class="fab fa-linkedin"></i
-            ></a>
-          </div>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div
-          class="collapse navbar-collapse justify-content-end"
-          id="navbarNav"
-        >
-          <ul class="navbar-nav nav nav-pills nav-fill">
-            {% url 'portfolio:index' as index %}
+<nav id="navbar" class="navbar navbar-expand-lg navbar-dark vex-bg-black-alpha">
+  <div class="container">
+    <a class="navbar-brand" href="{% url 'portfolio:index' %}">VeXfolio</a>
+    <div class="social-links">
+      <a
+        href="https://www.facebook.com/VeXuZ.ZuXeV"
+        target="blank"
+        class="mr-3 text-light"
+        aria-hidden="true"
+        ><i class="fab fa-facebook"></i
+      ></a>
+      <a
+        href="https://github.com/vexuzdorotan"
+        target="blank"
+        class="mr-3 text-light"
+        aria-hidden="true"
+        ><i class="fab fa-github"></i
+      ></a>
+      <a
+        href="https://stackoverflow.com/users/10217282/jonnel-vexuz-dorotan"
+        target="blank"
+        class="mr-3 text-light"
+        aria-hidden="true"
+        ><i class="fab fa-stack-overflow"></i
+      ></a>
+      <a
+        href="https://www.linkedin.com/in/jonneldorotan/"
+        target="blank"
+        class="mr-3 text-light"
+        aria-hidden="true"
+        ><i class="fab fa-linkedin"></i
+      ></a>
+    </div>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav nav nav-pills nav-fill">
+        {% url 'portfolio:index' as index %} {% if request.path == index %}
 
-            {% if request.path == index %}
+        <li class="nav-item">
+          <a class="nav-link" href="#home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#project">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#course">Courses</a>
+        </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="#home">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#about">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#project">Projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#course">Courses</a>
-            </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'portfolio:index' %}"
+            >Back to Main Page</a
+          >
+        </li>
+        {% endif %}
 
-            {% else %}
-            <li class="nav-item">
-            <a class="nav-link" href="{% url 'portfolio:index' %}">Back to Main Page</a>
-            </li>
-            {% endif %}
-
-            <li class="nav-item">
-              <a class="nav-link text-secondary text-muted" href="{% url 'admin:index' %}">Django Admin</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+        <li class="nav-item">
+          <a
+            class="nav-link text-secondary text-muted"
+            href="{% url 'admin:index' %}"
+            >Django Admin</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,6 +1,6 @@
 <h1> Yo? I'm Jonnel, a.k.a. 'VeXuZ'! <img src="https://media.giphy.com/media/WUlplcMpOCEmTGBtBW/giphy.gif" width="30"> </h1>
 
-<a href="https://www.facebook.com/dorotan.Jonnel">
+<a href="https://www.facebook.com/VeXuZ.ZuXeV">
   <img align="left" alt="VeXuZ | Facebook" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/facebook.svg" />
 </a>
 <a href="https://www.linkedin.com/in/jonneldorotan/">
@@ -27,8 +27,8 @@ const VEXUZ_DOROTAN = {
   backend: ['Node.js', 'Express', 'Django'],
   datastore: ['MongoDB', 'PostgreSQL'],
   infrastructure: ['Heroku', 'Firebase', 'PythonAnywhere'],
-  tool: ['Git', 'Postman', 'MongoDBCompass', 'VSCode']
-}
+  tool: ['Git', 'Postman', 'MongoDBCompass', 'VSCode'],
+};
 ```
 
 ---
@@ -37,6 +37,6 @@ const VEXUZ_DOROTAN = {
 
 - 👨‍💻 Jonnel Salvador S. Dorotan
 - 🏡 Quezon City, Philippines
-- 📧 vexuzdorotan@gmail.com
+- 📧 dorotan.jonnel@gmail.com
 - 👨‍🎓 Bachelor of Science in Computer Engineering
 - 🏫 Rizal Technological University
