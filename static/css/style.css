@@ -181,6 +181,11 @@ a:hover {
   transition: all 0.2s ease-in-out;
 }
 
+.project .vex-demo {
+  display: block;
+  font-weight: bolder;
+}
+
 @media (min-width: 992px) {
   .project .card img:hover {
     transform: scale(1.1);

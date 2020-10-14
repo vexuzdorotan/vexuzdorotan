@@ -22,6 +22,12 @@
                 <small class="card-text">{{ project.description|truncatechars:200 }}</small>
               </div>
               <div class="card-footer py-0">
+                <small class="vex-demo">
+                  {% if project.website_link %}
+                  <a href="{{ project.website_link }}" target="blank">{{ project.website_link }}</a>
+                  {% endif %}
+                </small>
+
                 <small class="text-muted">
                   {% if project.from_scratch %}
                     <i class="fas fa-star"></i>
@@ -35,11 +41,10 @@
                   <span>{{ project.date_added|timesince }} ago</span>
                   {% endif %}
 
-                  {% if project.website_link %}
-                  | <span><a href="{{ project.website_link }}" target="blank">Demo</a></span>
-                  {% endif %}
+
                   {% if project.github_link %}
-                  | <span><a href="{{ project.github_link }}" target="blank">Source Code</a></span>
+                  | <span><a href="{{ project.github_link }}" target="blank">
+                  <i class="fab fa-github"></i> My Source Code</a></span>
                   {% endif %}
                 </small>
               </div>
@@ -58,7 +63,7 @@
           role="button"
           aria-pressed="true"
         >
-          Go to {{ projects_count_more }} More Project{{ projects_count_more|pluralize }}
+          View All {{ projects_count }} Project{{ projects_count|pluralize }}
         </a>
 
         {% else %}

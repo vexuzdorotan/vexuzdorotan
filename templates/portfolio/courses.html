@@ -38,7 +38,7 @@
                         {% if course.code %}
                         | <span class="mb-2">
                           <a href="{{ course.code }}" target="blank" class="badge badge-primary">
-                          <i class="fab fa-github"></i> My Exercise Codes</a> 
+                          <i class="fab fa-github"></i> My Exercise Code</a> 
                           {% endif %}
                         </span> 
                       </small>
@@ -62,7 +62,7 @@
           role="button"
           aria-pressed="true"
         >
-          Go to {{ courses_count_more }} More Course{{ courses_count_more|pluralize }} Taken
+          View All {{ courses_count }} Course{{ courses_count|pluralize }} Taken
         </a>
 
         {% else %}
@@ -109,8 +109,8 @@
         {% endif %}
 
         <div class="d-flex flex-column text-muted mb-2">
-          <small class="text-justify">&emsp; &emsp; Most of the courses taken that I found on the internet are free downloads; so, there is no certification.</small>
-          <small class="text-justify">&emsp; &emsp; I follow along with the instructors building something cool in a video tutorial. Some have small projects uploaded into GitHub.</small>
+          <small class="text-justify">&emsp; &emsp; Most of the courses taken that I found on the internet are free download. So, there are no certificates.</small>
+          <small class="text-justify">&emsp; &emsp; I follow along with the instructors developing something cool in a video tutorial. Some have small projects uploaded into GitHub.</small>
         </div>
       </div>
     </section>
