@@ -10,8 +10,8 @@
 <br />
 <br />
 
-I am self-motivated and self-taught web developer from the Philippines.
-During my spare time, I build websites and web apps with MERN Stack to improve my programming abilities.
+I am a Junior Software Developer from the Philippines.
+I build websites and web apps with CodeIgniter, Django, and Node.js to improve my programming abilities.
 You can view my portfolio here at [vexuzdorotan.pythonanywhere.com](https://vexuzdorotan.pythonanywhere.com/)!
 
 ---
@@ -20,11 +20,11 @@ You can view my portfolio here at [vexuzdorotan.pythonanywhere.com](https://vexu
 
 ```javascript
 const VEXUZ_DOROTAN = {
-  frontend: ['React', 'JavaScript', 'Bootstrap'],
-  backend: ['Node.js', 'Express', 'Django'],
-  database: ['MongoDB', 'PostgreSQL'],
+  frontend: ['React', 'jQuery', 'Bootstrap'],
+  backend: ['Node.js', 'Express', 'Django', 'CodeIgniter'],
+  database: ['MongoDB', 'MySQL'],
   infrastructure: ['Heroku', 'Firebase', 'PythonAnywhere'],
-  tools: ['Git', 'Postman', 'MongoDBCompass', 'VSCode'],
+  tools: ['Git', 'SVN', 'Postman', 'MongoDBCompass', 'VSCode'],
 };
 ```
 
