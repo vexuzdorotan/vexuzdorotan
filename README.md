@@ -1,39 +1,26 @@
-<h1> Yo? I'm Jonnel, a.k.a. 'VeXuZ'! <img src="https://media.giphy.com/media/WUlplcMpOCEmTGBtBW/giphy.gif" width="30"> </h1>
+<h1> Yo! 👋 I'm Jonnel "VeXuZ" Dorotan!
+  <img src="https://media.giphy.com/media/WUlplcMpOCEmTGBtBW/giphy.gif" width="30">
+</h1>
 
-<a href="https://www.facebook.com/VeXuZ.ZuXeV">
-  <img align="left" alt="VeXuZ | Facebook" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/facebook.svg" />
-</a>
-<a href="https://www.linkedin.com/in/jonneldorotan/">
-  <img align="left" alt="VeXuZ | LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />
-</a>
+<a href="https://www.linkedin.com/in/jonneldorotan/">![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)</a>
 
+<samp>
+An experienced Software Engineer in Manila who graduated with a BS in Computer Engineering,
 <br />
-<br />
-
-I am a Junior Software Developer from the Philippines.
-I build websites and web apps with CodeIgniter, Django, and Node.js to improve my programming abilities.
-You can view my portfolio here at [vexuzdorotan.pythonanywhere.com](https://vexuzdorotan.pythonanywhere.com/)!
+currently working in a leading consulting and technology services company.
+</samp>
 
 ---
 
-**VeXuZ | Skill** 😱
+**Tech Stack**
 
 ```javascript
 const VEXUZ_DOROTAN = {
-  frontend: ['React', 'jQuery', 'Bootstrap'],
-  backend: ['Node.js', 'Express', 'Django', 'CodeIgniter'],
-  database: ['MongoDB', 'MySQL'],
+  language: ['TypeScript', 'JavaScript', 'C#', 'Python'],
+  frontend: ['ReactJS', 'Redux Toolkit', 'Tailwind CSS', 'MUI', 'Bootstrap'],
+  backend: ['Node.js', 'Express', 'ASP.NET Core', 'Django'],
+  database: ['Microsoft SQL Server', 'MySQL', 'MongoDB', 'Elasticsearch'],
   infrastructure: ['Heroku', 'Firebase', 'PythonAnywhere'],
-  tools: ['Git', 'SVN', 'Postman', 'MongoDBCompass', 'VSCode'],
+  tools: ['Azure DevOps', 'GitHub', 'Git', 'SVN', 'Postman', 'VSCode'],
 };
 ```
-
----
-
-**VeXuZ | About** 😎
-
-- 👨‍💻 Jonnel Salvador S. Dorotan
-- 🏡 Quezon City, Philippines
-- 📧 dorotan.jonnel@gmail.com
-- 👨‍🎓 Bachelor of Science in Computer Engineering
-- 🏫 Rizal Technological University
